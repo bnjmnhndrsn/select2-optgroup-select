@@ -1,0 +1,23 @@
+{
+  "name": "select2Plugins",
+  "version": "0.0.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "select2": "https://github.com/select2/select2.git#master",
+    "underscore": "~1.8.3"
+  },
+  "overrides": {
+    "select2": {
+      "dependencies": {
+        "jquery": true
+      },
+      "main": "dist/js/select2.full.js"
+    }
+  }
+}
