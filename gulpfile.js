@@ -6,6 +6,10 @@ var source = require('vinyl-source-stream');
 var watchify = require('watchify');
 var buffer = require('vinyl-buffer');
 var shell = require('gulp-shell');
+var cssGlobbing = require('gulp-css-globbing');
+var autoprefixer = require('gulp-autoprefixer');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 var _ = require('./bower_components/underscore/underscore.js');
 
 
@@ -21,6 +25,18 @@ gulp.task('build:vendor', function(){
 gulp.task('build:app', function(){
     var b = setupAppBundle();
     bundleApp(b);
+});
+
+gulp.task('build:sass', function(){
+    return gulp.src(['./lib/scss/styles.scss'])
+        .pipe(cssGlobbing({ extensions: ['.scss'] }))
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            precision: 10
+        }))
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write('./sourcemaps'))
+        .pipe(gulp.dest('./dist'));
 });
 
 // Build Helpers
@@ -54,5 +70,5 @@ gulp.task('watch:app', function(){
 });
 
 
-gulp.task('build', ['build:vendor','build:app']);
+gulp.task('build', ['build:vendor','build:app', 'build:sass']);
 gulp.task('watch', ['watch:app']);

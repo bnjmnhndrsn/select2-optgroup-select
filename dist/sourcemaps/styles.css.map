@@ -1,0 +1,1 @@
+{"version":3,"sources":["_optgroup-select.scss"],"names":[],"mappings":"AAAuB;EACnB,gBAAQ,EAAA","file":"styles.css","sourcesContent":[".select2-results__group[aria-selected] {\n    cursor: pointer;\n}"],"sourceRoot":"/source/"}
