@@ -1,5 +1,7 @@
 .select2-results__group[aria-selected] {
   cursor: pointer; }
+  .select2-results__group[aria-selected][aria-selected=true] {
+    background-color: #ddd; }
 
 
 /*# sourceMappingURL=sourcemaps/styles.css.map */
