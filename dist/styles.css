@@ -2,6 +2,9 @@
   cursor: pointer; }
   .select2-results__group[aria-selected][aria-selected=true] {
     background-color: #ddd; }
+  .select2-results__group[aria-selected].select2-results__option--highlighted[aria-selected] {
+    background-color: #5897fb;
+    color: white; }
 
 
 /*# sourceMappingURL=sourcemaps/styles.css.map */
