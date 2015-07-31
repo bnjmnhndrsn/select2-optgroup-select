@@ -1,1 +1,1 @@
-A plugin for [Select2](https://select2.github.io/) which allows selecting the optgroup header. [Demo](https://rawgit.com/bnjmnhndrsn/select2-plugins/master/index.html).
+A plugin for [Select2](https://select2.github.io/) which adds the ability to click on the optgroup to select/unselect all of child options. [Demo](https://rawgit.com/bnjmnhndrsn/select2-plugins/master/index.html).
