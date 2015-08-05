@@ -1,0 +1,12 @@
+.select2-results__group[aria-selected] {
+    cursor: pointer;
+    
+    &[aria-selected=true] {
+      background-color: #ddd;
+    }
+    
+    &.select2-results__option--highlighted[aria-selected] {
+      background-color: #5897fb;
+      color: white;
+    }
+}

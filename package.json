@@ -1,22 +1,14 @@
 {
   "name": "select2Plugins",
+  "main": "dist/select2.optgroupSelect.js",
   "version": "0.0.0",
   "description": "STUFF",
   "devDependencies": {
-    "brfs": "^1.2.0",
-    "browserify": "^7.0.0",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-bower": "0.0.7",
-    "gulp-concat": "^2.4.2",
-    "gulp-css-globbing": "^0.1.5",
-    "gulp-sass": "^1.2.4",
-    "gulp-sourcemaps": "^1.2.8",
-    "gulp-shell": "^0.2.11",
-    "main-bower-files": "^2.4.1",
-    "vinyl": "^0.4.6",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.0.0",
-    "watchify": "^2.2.1"
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-sass": "^1.0.0",
+    "node-sass": "^3.2.0"
   }
 }
