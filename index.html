@@ -20,5 +20,21 @@
             <option value='6'>Astoria</option>
         </optgroup>
     </select>
+	<script>
+	$(function(){
+	    
+	    $.fn.select2.amd.require(["optgroupData", "optgroupResults"], 
+	        function (OptgroupData, OptgroupResults) {
+
+	        $('#target').select2({
+	            dataAdapter: OptgroupData,
+	            resultsAdapter: OptgroupResults,
+	            closeOnSelect: false
+	        }); 
+	        
+	        $('select').change(function(){ console.log( $(this).val() ) });
+	    });
+	});
+	</script>
 </body>
 </html>
