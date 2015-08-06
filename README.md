@@ -7,7 +7,7 @@ A plugin for [Select2](https://select2.github.io/) which adds the ability to cli
 ### Usage
 First get a select element with optgroups:
 ````html
-<select id='example'>
+<select id='target'>
     <optgroup label="All Manhattan">
         <option value='3'>Flatiron</option>
         <option value='4'>Upper West Side</option>
