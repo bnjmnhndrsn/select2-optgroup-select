@@ -2,7 +2,7 @@
   "name": "select2Plugins",
   "main": "dist/select2.optgroupSelect.js",
   "version": "0.0.0",
-  "description": "STUFF",
+  "description": "Plugin for Select2 to allow toggling optgroups",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
@@ -11,5 +11,9 @@
     "grunt-sass": "^1.0.0",
     "node-sass": "^3.2.0",
     "select2": "^4.0.0"
-  }
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/bnjmnhndrsn/select2-optgroup-select.git"
+    }
 }
