@@ -9,12 +9,9 @@ module.exports = function (grunt) {
 
     concat: {
       'dist': {
-        options: {
-          banner: grunt.file.read('src/js/wrapper.start.js'),
-        },
         src: [
-          'dist/select2.optgroupSelect.js',
-          'src/js/wrapper.end.js'
+          'src/js/optgroup-data.js',
+          'src/js/optgroup-results.js'
         ],
         dest: 'dist/select2.optgroupSelect.js'
       }
@@ -31,22 +28,6 @@ module.exports = function (grunt) {
             ]
           }
         }
-    },
-    requirejs: {
-      'dist': {
-        options: {
-          baseUrl: 'src/js',
-          optimize: 'none',
-          name: 'jquery.select2.optgroupSelect',
-          out: 'dist/select2.optgroupSelect.js',
-          include: includes,
-          namespace: 'S2',
-          wrap: {
-            startFile: 'src/js/banner.start.js',
-            endFile: 'src/js/banner.end.js'
-          }
-        }
-      }
     }
   });
 
@@ -55,6 +36,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-sass');
 
   grunt.registerTask('compile', [
-    'requirejs:dist', 'concat:dist', 'sass:dev'
+    'concat:dist', 'sass:dev'
   ]);
 };

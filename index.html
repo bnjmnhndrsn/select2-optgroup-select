@@ -1,7 +1,9 @@
 <html>
 <head>
-	<script src="dist/vendor.js"></script>
-	<script src="dist/app.js"></script>
+	<script src="bower_components/select2/vendor/jquery-2.1.0.js"></script>
+	<script src="bower_components/select2/vendor/jquery.mousewheel.js"></script>
+	<script src="bower_components/select2/dist/js/select2.js"></script>
+	<script src="dist/select2.optgroupSelect.js"></script>
 	<link rel="stylesheet" type="text/css" href="dist/styles.css">
 </head>
 <body>
@@ -22,17 +24,14 @@
     </select>
 	<script>
 	$(function(){
-	    
-	    $.fn.select2.amd.require(["optgroupData", "optgroupResults"], 
+	    $.fn.select2.amd.require(["optgroup-data", "optgroup-results"], 
 	        function (OptgroupData, OptgroupResults) {
-
+			debugger;
 	        $('#target').select2({
 	            dataAdapter: OptgroupData,
 	            resultsAdapter: OptgroupResults,
 	            closeOnSelect: false
 	        }); 
-	        
-	        $('select').change(function(){ console.log( $(this).val() ) });
 	    });
 	});
 	</script>
