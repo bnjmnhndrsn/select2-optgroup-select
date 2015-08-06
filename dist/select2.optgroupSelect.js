@@ -14,7 +14,7 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
             var option = self.item($option);
             
             if (!option.hasOwnProperty('id')) {
-                option.id = false;
+                option.id = 'optgroup';
             }
             
             data.push(option);
