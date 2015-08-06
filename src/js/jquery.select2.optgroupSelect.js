@@ -1,3 +1,3 @@
-define(['./optgroup-data', './optgroup-results'], function (OptgroupSelect, OptgroupResults) {
+require(['./optgroup-data', './optgroup-results'], function (OptgroupSelect, OptgroupResults) {
     return {};
 });

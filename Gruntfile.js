@@ -1,8 +1,7 @@
 module.exports = function (grunt) {
   // Full list of files that must be included by RequireJS
   includes = [
-    'jquery.select2.optgroupSelect',
-    'almond'
+    'jquery.select2.optgroupSelect'
   ];
 
   grunt.initConfig({
@@ -17,7 +16,7 @@ module.exports = function (grunt) {
           'dist/select2.optgroupSelect.js',
           'src/js/wrapper.end.js'
         ],
-        dest: 'dist/js/select2.optgroupSelect.js'
+        dest: 'dist/select2.optgroupSelect.js'
       }
     },
 
@@ -39,12 +38,9 @@ module.exports = function (grunt) {
           baseUrl: 'src/js',
           optimize: 'none',
           name: 'jquery.select2.optgroupSelect',
-          out: 'dist/select2.js',
+          out: 'dist/select2.optgroupSelect.js',
           include: includes,
           namespace: 'S2',
-          paths: {
-            almond: '../../vendor/almond-0.2.9'
-          },
           wrap: {
             startFile: 'src/js/banner.start.js',
             endFile: 'src/js/banner.end.js'
