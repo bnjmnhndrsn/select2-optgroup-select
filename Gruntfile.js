@@ -23,7 +23,7 @@ module.exports = function (grunt) {
             outputStyle: 'nested'
           },
           files: {
-            'dist/select2.css': [
+            'dist/select2.optgroupSelect.css': [
               'src/scss/styles.scss',
             ]
           }

@@ -1,5 +1,7 @@
-$.fn.amd.define('optgroup-results', ['select2/results', 'select2/utils'], function OptgroupResults (ResultsAdapter, Utils) {
-    OptgroupResults.__super__.constructor.apply(this, arguments);
+$.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils'], function OptgroupResults (ResultsAdapter, Utils) {
+    function OptgroupResults () {
+        OptgroupResults.__super__.constructor.apply(this, arguments);
+    };
 
     Utils.Extend(OptgroupResults, ResultsAdapter);
         

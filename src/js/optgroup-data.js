@@ -1,4 +1,4 @@
-$.fn.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'], function(SelectAdapter, Utils){
+$.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'], function(SelectAdapter, Utils){
     function OptgroupData ($element, options) {
         OptgroupData.__super__.constructor.apply(this, arguments);
     }

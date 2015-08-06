@@ -4,7 +4,8 @@
 	<script src="bower_components/select2/vendor/jquery.mousewheel.js"></script>
 	<script src="bower_components/select2/dist/js/select2.js"></script>
 	<script src="dist/select2.optgroupSelect.js"></script>
-	<link rel="stylesheet" type="text/css" href="dist/styles.css">
+	<link rel="stylesheet" type="text/css" href=""
+	<link rel="stylesheet" type="text/css" href="dist/select2.optgroupSelect.css">
 </head>
 <body>
     <select multiple='multiple' style="width:500px" id='target'>
@@ -26,7 +27,6 @@
 	$(function(){
 	    $.fn.select2.amd.require(["optgroup-data", "optgroup-results"], 
 	        function (OptgroupData, OptgroupResults) {
-			debugger;
 	        $('#target').select2({
 	            dataAdapter: OptgroupData,
 	            resultsAdapter: OptgroupResults,
