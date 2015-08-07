@@ -1,8 +1,13 @@
 module.exports = function (grunt) {
   // Full list of files that must be included by RequireJS
-  includes = [
+  var includes = [
     'jquery.select2.optgroupSelect'
   ];
+  
+  var testFiles = grunt.file.expand('tests/**/*.html');
+  var testUrls = testFiles.map(function (filePath) {
+      return 'http://localhost:9999/' + filePath;
+  });
 
   grunt.initConfig({
     package: grunt.file.readJSON('package.json'),
@@ -14,6 +19,16 @@ module.exports = function (grunt) {
           'src/js/optgroup-results.js'
         ],
         dest: 'dist/select2.optgroupSelect.js'
+      }
+    },
+    
+    connect: {
+      tests: {
+        options: {
+          base: '.',
+          hostname: '127.0.0.1',
+          port: 9999
+        }
       }
     },
 
@@ -28,13 +43,21 @@ module.exports = function (grunt) {
             ]
           }
         }
-    }
+    },
+    qunit: {
+        all: {
+            options: {
+                urls: testUrls
+            }
+        }
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
 
-  grunt.registerTask('compile', [
-    'concat:dist', 'sass:dev'
-  ]);
+  grunt.registerTask('compile', ['concat:dist', 'sass:dev']);
+  grunt.registerTask('test', ['connect:tests', 'qunit']);
 };
