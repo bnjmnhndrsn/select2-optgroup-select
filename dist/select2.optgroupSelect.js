@@ -62,6 +62,7 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         }
         
         this.$element.trigger('change');
+        $(window).trigger('scroll.select2');
     };
     
     OptgroupData.prototype.unselect = function (data) {
@@ -75,9 +76,14 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         data.element.selected = false;
         
         var $optgroup = $(data.element.parentElement);
-        $optgroup.removeClass('selected-custom');
+        
+        if ($optgroup.hasClass('selected-custom')) {
+            $optgroup.removeClass('selected-custom');
+        }
+
         
         this.$element.trigger('change');
+        $(window).trigger('scroll.select2');
     };
     
     OptgroupData.prototype.optgroupSelect = function (data) {
