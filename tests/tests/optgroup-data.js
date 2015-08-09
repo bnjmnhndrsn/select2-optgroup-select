@@ -1,7 +1,10 @@
 module('Optgroup-Data');
 
 // current
-test('returns option if they have :selected');
+test('returns option if they have :selected', function(assert){
+    
+});
+
 test('returns optgroup if they have .selected-custom');
 test('returns mixed group of option and optgroup');
 test('does not return option if it returns the optgroup');
