@@ -1,8 +1,10 @@
 module('Optgroup-Data');
 
+var Options = require('select2/options');
+
 // current
 test('returns option if they have :selected', function(assert){
-    
+
 });
 
 test('returns optgroup if they have .selected-custom');
