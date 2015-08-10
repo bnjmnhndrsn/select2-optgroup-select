@@ -110,6 +110,14 @@ test('Clicking on selected optgroup sets all of the options to aria-selected=fal
     assert.equal($options.eq(1).attr('aria-selected'), 'false');
 });
 
+//highlighting
+test('mouseenter on optgroup causes it get highlighting', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'));
+    $select.select2('open');
+    var $option = $select.data('select2').$results.find('.select2-results__group:first').trigger('mouseenter');
+    assert.ok( $option.hasClass('select2-results__option--highlighted') );
+});
+
 //closeOnSelect
 
 test('mouseup on unselected optgroup closes container if closeOnSelect=true', function(assert){
@@ -128,5 +136,16 @@ test('mouseup on unselected optgroup keeps container open if closeOnSelect=false
     $select.select2('open');
     $select.data('select2').$results.find('.select2-results__group:first').trigger('mouseup');
     assert.ok($select.data('select2').isOpen());
+});
+
+//placeholder
+test('Placeholder option does not interfere with a single optgroup being selected', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'), {
+        placeholder: 'PLACEHOLDER'
+    });
+    $select.select2('open');
+    $select.data('select2').$results.find('.select2-results__group:first').trigger('mouseup');
+    var title = $select.data('select2').$container.find('.select2-selection__choice').attr('title');
+    assert.equal(title, $('#qunit-fixture .multiple optgroup:first').attr('label'));
 });
 
