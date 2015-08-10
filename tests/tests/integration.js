@@ -112,6 +112,21 @@ test('Clicking on selected optgroup sets all of the options to aria-selected=fal
 
 //closeOnSelect
 
-// test('mouseup on unselected optgroup closes container if closeOnSelect=true', function(){});
-// test('mouseup on unselected optgroup keeps container open if closeOnSelect=false', function(){});
+test('mouseup on unselected optgroup closes container if closeOnSelect=true', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'), {
+        closeOnSelect: true
+    });
+    $select.select2('open');
+    $select.data('select2').$results.find('.select2-results__group:first').trigger('mouseup');
+    assert.notOk($select.data('select2').isOpen());
+});
+
+test('mouseup on unselected optgroup keeps container open if closeOnSelect=false', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'), {
+        closeOnSelect: false
+    });
+    $select.select2('open');
+    $select.data('select2').$results.find('.select2-results__group:first').trigger('mouseup');
+    assert.ok($select.data('select2').isOpen());
+});
 
