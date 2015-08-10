@@ -42,4 +42,12 @@ The select2.optgroupSelect.js file is simple: all it does is define the two adap
 
 There is a also a limited select2.optgroupSelect.css file which adds the default Select2 option styles to optgroups.
 
+### Development
+First install the dev dependencies: 
+`npm install`
 
+To compile the distribution javascript:
+`grunt compile`
+
+To run the test suite:
+`grunt test`
