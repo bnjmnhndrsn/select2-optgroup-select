@@ -1,7 +1,7 @@
 {
   "name": "select2Plugins",
   "main": "dist/select2.optgroupSelect.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Plugin for Select2 to allow toggling optgroups",
   "devDependencies": {
     "grunt": "^0.4.5",
