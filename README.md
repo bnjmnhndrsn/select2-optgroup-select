@@ -38,7 +38,7 @@ $.fn.select2.amd.require(["optgroup-data", "optgroup-results"], function (Optgro
 Remember: both adapters must be used together!
 
 ### Installation
-The select2.optgroupSelect.js file is simple: all it does is define the two adapters using the global $.fn.select2 variable. Declare Select2 as a dependency in your package management system - or place it first if you're inlining styles - and you're good.
+The select2.optgroupSelect.js file defines the two adapters using the global $.fn.select2 variable. Declare Select2 as a dependency in your package management system - or place it first if you're inlining styles - and you're good.
 
 There is a also a limited select2.optgroupSelect.css file which adds the default Select2 option styles to optgroups.
 
