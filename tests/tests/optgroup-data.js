@@ -29,6 +29,7 @@ test('returns option if they have :selected', function(assert){
         assert.ok($select.find('option:last').is(current[1].element));
     });
 });
+
 test('returns optgroup if they have .selected-custom', function(assert){
     var $select = $('#qunit-fixture .multiple');
     selectOptgroup($select.find('optgroup'));
@@ -39,8 +40,29 @@ test('returns optgroup if they have .selected-custom', function(assert){
         assert.ok($select.find('optgroup:last').is(current[1].element));
     });
 });
-// test('returns mixed group of option and optgroup', function(){});
-// test('does not return option if it returns the optgroup', function(){});
+
+test('returns mixed group of option and optgroup', function(assert){
+    var $select = $('#qunit-fixture .multiple');
+    selectOptgroup($select.find('optgroup:first'));
+    $select.find('option:last').prop('selected', true);
+    var data = new OptgroupData($select, selectOptions);
+    data.current(function(current){
+        assert.equal(current.length, 2);
+        assert.ok($select.find('optgroup:first').is(current[0].element));
+        assert.ok($select.find('option:last').is(current[1].element));
+    });
+});
+
+test('does not return option if it returns the optgroup', function(assert){
+    var $select = $('#qunit-fixture .multiple');
+    selectOptgroup($select.find('optgroup:first'));
+    $select.find('optgroup:first option').prop('selected', true);
+    var data = new OptgroupData($select, selectOptions);
+    data.current(function(current){
+        assert.equal(current.length, 1);
+        assert.ok($select.find('optgroup:first').is(current[0].element));
+    });
+});
 //
 // // select
 // test('selects the option', function(){});
