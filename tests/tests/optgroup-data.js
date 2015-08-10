@@ -98,11 +98,48 @@ test('unselects the parent optgroup', function(assert){
     assert.equal(optgroupIsSelected($optgroup), false);
 });
 
-//
-// // optgroup select
-// test('selects the optgroup', function(){});
-// test('selects all of the child selects', function(){});
-//
-// // optgroup unselect
-// test('unselects the optgroup', function(){});
-// test('unselects all of the child elements', function(){});
+
+// optgroup select
+test('selects the optgroup', function(assert){
+    var $select = $('#qunit-fixture .multiple');
+    var $optgroup = $select.find('optgroup:first');
+    var data = new OptgroupData($select, selectOptions);
+    var optgroupDatum = data.item($optgroup);
+    assert.equal(optgroupIsSelected($optgroup), false);
+    data.optgroupSelect(optgroupDatum);
+    assert.equal(optgroupIsSelected($optgroup), true);
+});
+
+test('selects all of the child selects', function(assert){
+    var $select = $('#qunit-fixture .multiple');
+    var $optgroup = $select.find('optgroup:first');
+    var data = new OptgroupData($select, selectOptions);
+    var optgroupDatum = data.item($optgroup);
+    assert.equal(optgroupIsSelected($optgroup), false);
+    data.optgroupSelect(optgroupDatum);
+    assert.equal(optgroupIsSelected($optgroup), true);
+});
+
+// optgroup unselect
+test('unselects the optgroup', function(assert){
+    var $select = $('#qunit-fixture .multiple');
+    var $optgroup = $select.find('optgroup:first');
+    var data = new OptgroupData($select, selectOptions);
+    var optgroupDatum = data.item($optgroup);
+    selectOptgroup($optgroup);
+    assert.equal(optgroupIsSelected($optgroup), true);
+    data.optgroupUnselect(optgroupDatum);
+    assert.equal(optgroupIsSelected($optgroup), false);
+});
+
+test('unselects all of the child elements', function(assert){
+    var $select = $('#qunit-fixture .multiple');
+    var $optgroup = $select.find('optgroup:first');
+    var optionCount = $optgroup.find('option').prop('selected', true).length;
+    var data = new OptgroupData($select, selectOptions);
+    var optgroupDatum = data.item($optgroup);
+    selectOptgroup($optgroup);
+    assert.equal($optgroup.find('option:selected').length, optionCount);
+    data.optgroupUnselect(optgroupDatum);
+    assert.equal($optgroup.find('option:selected').length, false);
+});
