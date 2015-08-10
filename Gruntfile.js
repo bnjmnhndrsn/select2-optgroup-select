@@ -17,7 +17,7 @@ module.exports = function (grunt) {
                 src: [
                     'src/js/wrapper-start.js',
                     'src/js/optgroup-data.js',
-                    'src/js/optgroup-results.js'
+                    'src/js/optgroup-results.js',
                     'src/js/wrapper-end.js'
                 ],
                 dest: 'dist/select2.optgroupSelect.js'

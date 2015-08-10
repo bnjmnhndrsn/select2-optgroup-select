@@ -1,3 +1,5 @@
+(function($){
+
 $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'], function(SelectAdapter, Utils){
     function OptgroupData ($element, options) {
         OptgroupData.__super__.constructor.apply(this, arguments);
@@ -62,6 +64,8 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         }
         
         this.$element.trigger('change');
+
+        // Manually trigger dropdrop positioning handler
         $(window).trigger('scroll.select2');
     };
     
@@ -83,6 +87,8 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
 
         
         this.$element.trigger('change');
+        
+        // Manually trigger dropdrop positioning handler
         $(window).trigger('scroll.select2');
     };
     
@@ -102,6 +108,9 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         
         this.$element.val(vals);
         this.$element.trigger('change');
+        
+        // Manually trigger dropdrop positioning handler
+        $(window).trigger('scroll.select2');
     };
     
     OptgroupData.prototype.optgroupUnselect = function (data) {
@@ -120,6 +129,9 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         });
         this.$element.val(newVals);
         this.$element.trigger('change');
+        
+        // Manually trigger dropdrop positioning handler
+        $(window).trigger('scroll.select2');
     };
     
     return OptgroupData;
@@ -255,3 +267,4 @@ $.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils']
     
     return OptgroupResults;
 });
+})(jQuery);
