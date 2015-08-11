@@ -27,7 +27,6 @@ test('Clicking on a selected optgroup unselects all of the options', function(as
 });
 
 // selection
-
 test('Clicking on the optgroup causes the optgroup to display in the selection', function(assert){
     var $select = setUpSelect2($('#qunit-fixture .multiple'));
     $select.select2('open');
@@ -66,6 +65,14 @@ test('Clicking on choice remove link removes all options in the optgroup', funct
     $select.data('select2').$results.find('.select2-results__group:first').trigger('mouseup');
     $select.data('select2').$container.find('.select2-selection__choice__remove').click();
     assert.notOk($select.val());
+});
+
+//triggering change events
+test('programmatically setting the val sets an optgroup', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'));
+    $select.val(["one", "two"]).change();
+    var title = $select.data('select2').$container.find('.select2-selection__choice').attr('title');
+    assert.equal(title, $('#qunit-fixture .multiple optgroup:first').attr('label'));
 });
 
 //setClasses
