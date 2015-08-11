@@ -1,7 +1,10 @@
 $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'], function(SelectAdapter, Utils){
     function OptgroupData ($element, options) {
         OptgroupData.__super__.constructor.apply(this, arguments);
-        
+        var self = this;
+        this.$element.find('optgroup').each(function(){
+            self._checkOptgroup(this);
+        });
     }
     
     Utils.Extend(OptgroupData, SelectAdapter);
@@ -47,9 +50,7 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         // Change selected property on underlying option element 
         data.selected = true;
         data.element.selected = true;
-        
-        this._checkOptgroup(data.element.parent);
-        
+        this._checkOptgroup(data.element.parentElement);
         this.$element.trigger('change');
 
         // Manually trigger dropdrop positioning handler

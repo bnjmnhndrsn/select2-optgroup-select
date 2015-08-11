@@ -3,6 +3,10 @@
 $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'], function(SelectAdapter, Utils){
     function OptgroupData ($element, options) {
         OptgroupData.__super__.constructor.apply(this, arguments);
+        var self = this;
+        this.$element.find('optgroup').each(function(){
+            self._checkOptgroup(this);
+        });
     }
     
     Utils.Extend(OptgroupData, SelectAdapter);
@@ -48,21 +52,7 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         // Change selected property on underlying option element 
         data.selected = true;
         data.element.selected = true;
-        
-        var optgroup = data.element.parentElement;
-        var children = optgroup.children;
-        
-        var allSelected = true;
-        
-        for (var i = 0; i < children.length; i++) {
-            allSelected = children[i].selected;
-            if (!allSelected) { break; }
-        }
-        
-        if (allSelected) {
-            $(optgroup).addClass('selected-custom');
-        }
-        
+        this._checkOptgroup(data.element.parentElement);
         this.$element.trigger('change');
 
         // Manually trigger dropdrop positioning handler
@@ -132,6 +122,22 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         
         // Manually trigger dropdrop positioning handler
         $(window).trigger('scroll.select2');
+    };
+    
+    // Check if all children of optgroup are selected. If so, select optgroup
+    OptgroupData.prototype._checkOptgroup = function(optgroup){
+        var children = optgroup.children;
+        
+        var allSelected = true;
+        
+        for (var i = 0; i < children.length; i++) {
+            allSelected = children[i].selected;
+            if (!allSelected) { break; }
+        }
+        
+        if (allSelected) {
+            $(optgroup).addClass('selected-custom');
+        }
     };
     
     return OptgroupData;
