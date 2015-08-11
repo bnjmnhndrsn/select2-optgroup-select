@@ -61,5 +61,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
 
     grunt.registerTask('compile', ['concat:dist', 'sass:dev']);
-    grunt.registerTask('test', ['connect:tests', 'qunit']);
+    grunt.registerTask('test', ['compile', 'connect:tests', 'qunit']);
 };
