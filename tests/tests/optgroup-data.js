@@ -4,6 +4,16 @@ var Options = require('select2/options');
 var OptgroupData = require('optgroup-data');
 var selectOptions = new Options({});
 
+//constructor
+test('adds .selected-custom to optgroup if all children are selected', function(assert){
+    var $select = $('#qunit-fixture .multiple');
+    var $optgroup = $select.find('optgroup:first');
+    $optgroup.find('option').prop('selected', true);
+    assert.notOk(optgroupIsSelected($optgroup));
+    var data = new OptgroupData($select, selectOptions);
+    assert.ok(optgroupIsSelected($optgroup));
+});
+
 // current
 test('returns option if they have :selected', function(assert){
     var $select = $('#qunit-fixture .multiple');
