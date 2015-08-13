@@ -12,7 +12,6 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         var data = [];
         var self = this;
         this._checkOptgroups();
-        debugger;
         this.$element.find(':not(.selected-custom) :selected, .selected-custom').each(function () {
             var $option = $(this);
             var option = self.item($option);
