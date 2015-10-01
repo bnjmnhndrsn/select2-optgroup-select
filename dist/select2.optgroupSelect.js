@@ -74,8 +74,9 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
     OptgroupData.prototype.optgroupSelect = function (data) {
         data.selected = true;
         var vals = this.$element.val() || [];
-        var newVals = $.map(data.children, function(child){
-            return '' + child.id;
+
+        var newVals = $.map(data.element.children, function(child){
+            return '' + child.value;
         });
         
         newVals.forEach(function(val){
@@ -94,8 +95,8 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
     OptgroupData.prototype.optgroupUnselect = function (data) {
         data.selected = false;
         var vals = this.$element.val() || [];
-        var removeVals = $.map(data.children, function(child){
-            return '' + child.id;
+        var removeVals = $.map(data.element.children, function(child){
+            return '' + child.value;
         });
         var newVals = [];
         
