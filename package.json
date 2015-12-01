@@ -12,7 +12,7 @@
     "grunt-sass": "^1.0.0",
     "node-sass": "^3.2.0",
     "qunitjs": "^1.18.0",
-    "select2": "^4.0.0"
+    "select2": "^4.0.1"
   },
   "repository": {
     "type": "git",
