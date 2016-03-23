@@ -123,6 +123,14 @@ $.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils']
                     $optgroup.attr('aria-selected', 'false');
                 }
             });
+            
+            var $selected = self.$results.find('[aria-selected="true"]');
+
+            if ($selected.length > 0) {
+                $selected.first().trigger('mouseenter');
+            } else {
+                $('[aria-selected]').first().trigger('mouseenter');
+            }
         });
 
     };
