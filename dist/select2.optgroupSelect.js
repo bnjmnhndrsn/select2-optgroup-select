@@ -257,7 +257,6 @@ $.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils']
                 }
             });
 
-            var $selected = self.$results.find('.select2-results__option[aria-selected="true"]');
             if (!self.getHighlightedResults().length) {
                 $('.select2-results__option[aria-selected]').first().trigger('mouseenter');
             }

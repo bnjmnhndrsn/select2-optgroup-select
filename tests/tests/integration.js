@@ -117,6 +117,25 @@ test('Clicking on selected optgroup sets all of the options to aria-selected=fal
     assert.equal($options.eq(1).attr('aria-selected'), 'false');
 });
 
+test('It will highlight the first result option if nothing is selected', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'));
+    $select.select2('open');
+    var $option = $select.data('select2').$results.find('.select2-results__option[aria-selected]:first');
+    assert.ok( $option.hasClass('select2-results__option--highlighted') );
+});
+
+test('It will not highlight anything if there is already a highlighted option', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'));
+    $select.select2('open');
+    var $first = $select.data('select2').$results.find('.select2-results__option[aria-selected]:first');
+    var $last = $select.data('select2').$results.find('.select2-results__option[aria-selected]:last');
+    $last.trigger('mouseenter');
+    assert.ok( $last.hasClass('select2-results__option--highlighted') );
+    $select.data('select2').results.setClasses();
+    assert.ok( $last.hasClass('select2-results__option--highlighted') );
+    assert.notOk( $first.hasClass('select2-results__option--highlighted') );
+});
+
 //highlighting
 test('mouseenter on optgroup causes it get highlighting', function(assert){
     var $select = setUpSelect2($('#qunit-fixture .multiple'));
