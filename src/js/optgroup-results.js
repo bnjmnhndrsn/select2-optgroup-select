@@ -1,4 +1,4 @@
-$.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils'], function OptgroupResults (ResultsAdapter, Utils) {
+$.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils',  'select2/keys'], function OptgroupResults (ResultsAdapter, Utils, KEYS) {
     function OptgroupResults () {
         OptgroupResults.__super__.constructor.apply(this, arguments);
     };
@@ -49,7 +49,7 @@ $.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils']
                 data: data,
                 element: $(this)
             });
-        });
+        });        
         
         container.on('optgroup:select', function () {
             if (!container.isOpen()) {
@@ -59,7 +59,7 @@ $.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils']
             if (self.options.options.closeOnSelect) {
                 self.trigger('close');
             }
-
+            
             self.setClasses();
         });
 
@@ -123,8 +123,11 @@ $.fn.select2.amd.define('optgroup-results', ['select2/results', 'select2/utils']
                     $optgroup.attr('aria-selected', 'false');
                 }
             });
-        });
 
+            if (!self.getHighlightedResults().length) {
+                $('.select2-results__option[aria-selected]').first().trigger('mouseenter');
+            }
+        });
     };
     
     return OptgroupResults;
