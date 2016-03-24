@@ -48,9 +48,10 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         data.element.selected = true;
 
         this.$element.trigger('change');
+        this.clearSearch();
 
         // Manually trigger dropdrop positioning handler
-        $(window).trigger('scroll.select2');
+        $(window).trigger('scroll.select2');        
     };
     
     OptgroupData.prototype.unselect = function (data) {
@@ -85,6 +86,7 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         
         this.$element.val(vals);
         this.$element.trigger('change');
+        this.clearSearch();
         
         // Manually trigger dropdrop positioning handler
         $(window).trigger('scroll.select2');
@@ -105,7 +107,7 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         });
         this.$element.val(newVals);
         this.$element.trigger('change');
-        
+
         // Manually trigger dropdrop positioning handler
         $(window).trigger('scroll.select2');
     };
@@ -126,6 +128,13 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
         });
 
     };
+    
+    OptgroupData.prototype.clearSearch = function(){
+        if (this.container.selection.$search.val()) {
+            this.container.selection.$search.val('');
+            this.container.selection.handleSearch();
+        }
+    } 
     
     return OptgroupData;
 });
