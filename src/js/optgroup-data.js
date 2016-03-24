@@ -130,6 +130,10 @@ $.fn.select2.amd.define('optgroup-data', ['select2/data/select', 'select2/utils'
     };
     
     OptgroupData.prototype.clearSearch = function(){
+        if (!this.container) {
+            return;
+        } 
+        
         if (this.container.selection.$search.val()) {
             this.container.selection.$search.val('');
             this.container.selection.handleSearch();

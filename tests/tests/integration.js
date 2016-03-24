@@ -175,3 +175,26 @@ test('Placeholder option does not interfere with a single optgroup being selecte
     assert.equal(title, $('#qunit-fixture .multiple optgroup:first').attr('label'));
 });
 
+//clearing search
+test('it clears anything in the search when an option is selected', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'));
+    $select.select2('open');
+    $select.data('select2').selection.$search.val('One');
+    $select.data('select2').selection.handleSearch();
+    assert.equal($select.data('select2').$results.find('.select2-results__option[aria-selected]').length, 1);
+    $select.data('select2').$results.find('.select2-results__option[aria-selected]:first').trigger('mouseup');
+    assert.notOk($select.data('select2').selection.$search.val());
+    assert.equal($select.data('select2').$results.find('.select2-results__option[aria-selected]').length, 4);
+});
+
+test('it clears anything in the search when an optgroup is selected', function(assert){
+    var $select = setUpSelect2($('#qunit-fixture .multiple'));
+    $select.select2('open');
+    $select.data('select2').selection.$search.val('Test');
+    $select.data('select2').selection.handleSearch();
+    assert.equal($select.data('select2').$results.find('.select2-results__group[aria-selected]').length, 1);
+    $select.data('select2').$results.find('.select2-results__group[aria-selected]:first').trigger('mouseup');
+    assert.notOk($select.data('select2').selection.$search.val());
+    assert.equal($select.data('select2').$results.find('.select2-results__option[aria-selected]').length, 4);
+});
+
