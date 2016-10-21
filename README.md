@@ -1,5 +1,5 @@
 # Select2.optgroupSelect
-A plugin for [Select2](https://select2.github.io/) which adds the ability to click on the optgroup to select/unselect all of child options. The plugin defines two additional Select2 adapters - OptgroupData and OptgroupResuts -  which are passed in to the Select2 constructor.
+A plugin for [Select2](https://select2.github.io/) which adds the ability to click on the optgroup to select/unselect all of child options. The plugin defines two additional Select2 adapters - OptgroupData and OptgroupResults -  which are passed in to the Select2 constructor.
 
 ### Example
 [Working Demo](https://rawgit.com/bnjmnhndrsn/select2-optgroup-select/master/example/index.html)
