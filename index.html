@@ -1,0 +1,41 @@
+<html>
+<head>
+  <script src="./example/vendor/jquery-2.1.0.js"></script>
+  <script src="./example/vendor/jquery.mousewheel.js"></script>
+  <script src="./example/vendor/select2.js"></script>
+  <script src="./dist/select2.optgroupSelect.js"></script>
+  <link rel="stylesheet" type="text/css" href="./example/vendor/select2.css">
+  <link rel="stylesheet" type="text/css" href="./dist/select2.optgroupSelect.css">
+</head>
+<body>
+    <select multiple='multiple' style="width:200px" id='target'>
+        <optgroup label="All Brooklyn">
+            <option value='1'>Crown Heights</option>
+            <option value='2'>Park Slope</option>
+      <option value='9'>Bed Stuy</option>
+        </optgroup>
+        <optgroup label="All Manhattan">
+            <option value='3'>Flatiron</option>
+            <option value='4'>Upper West Side</option>
+      <option value='10'>Manhattanville</option>
+        </optgroup>
+        <optgroup label="All Queens">
+            <option value='5'>Long Island City</option>
+            <option value='6'>Astoria</option>
+        </optgroup>
+    </select>
+  <script>
+  $(function(){
+      $.fn.select2.amd.require(["optgroup-data", "optgroup-results"],
+          function (OptgroupData, OptgroupResults) {
+          $('#target').select2({
+              dataAdapter: OptgroupData,
+              resultsAdapter: OptgroupResults,
+              closeOnSelect: false,
+        placeholder: "Search"
+          });
+      });
+  });
+  </script>
+</body>
+</html>
